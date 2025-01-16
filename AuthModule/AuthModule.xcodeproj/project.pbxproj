@@ -6,12 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		3DABF4A72D38C12600D2942D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DABF4A52D38C12600D2942D /* Main.storyboard */; };
-		3DABF4A92D38C12800D2942D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DABF4A82D38C12800D2942D /* Assets.xcassets */; };
-		3DABF4AC2D38C12800D2942D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DABF4AA2D38C12800D2942D /* LaunchScreen.storyboard */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		3DABF4B32D38C12800D2942D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -31,17 +25,26 @@
 
 /* Begin PBXFileReference section */
 		3DABF49C2D38C12600D2942D /* AuthModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3DABF4A62D38C12600D2942D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3DABF4A82D38C12800D2942D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3DABF4AB2D38C12800D2942D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3DABF4AD2D38C12800D2942D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DABF4B22D38C12800D2942D /* AuthModuleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthModuleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DABF4BC2D38C12800D2942D /* AuthModuleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthModuleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3DABF4D12D38C47000D2942D /* Exceptions for "AuthModule" folder in "AuthModule" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3DABF49B2D38C12600D2942D /* AuthModule */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		3DABF49E2D38C12600D2942D /* AuthModule */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3DABF4D12D38C47000D2942D /* Exceptions for "AuthModule" folder in "AuthModule" target */,
+			);
 			path = AuthModule;
 			sourceTree = "<group>";
 		};
@@ -53,6 +56,11 @@
 		3DABF4BF2D38C12800D2942D /* AuthModuleUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = AuthModuleUITests;
+			sourceTree = "<group>";
+		};
+		3DABF4D72D38C84900D2942D /* Resource */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -85,7 +93,7 @@
 		3DABF4932D38C12600D2942D = {
 			isa = PBXGroup;
 			children = (
-				3DABF4D02D38C14400D2942D /* Resource */,
+				3DABF4D72D38C84900D2942D /* Resource */,
 				3DABF49E2D38C12600D2942D /* AuthModule */,
 				3DABF4B52D38C12800D2942D /* AuthModuleTests */,
 				3DABF4BF2D38C12800D2942D /* AuthModuleUITests */,
@@ -101,17 +109,6 @@
 				3DABF4BC2D38C12800D2942D /* AuthModuleUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		3DABF4D02D38C14400D2942D /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				3DABF4A82D38C12800D2942D /* Assets.xcassets */,
-				3DABF4AD2D38C12800D2942D /* Info.plist */,
-				3DABF4AA2D38C12800D2942D /* LaunchScreen.storyboard */,
-				3DABF4A52D38C12600D2942D /* Main.storyboard */,
-			);
-			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +128,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				3DABF49E2D38C12600D2942D /* AuthModule */,
+				3DABF4D72D38C84900D2942D /* Resource */,
 			);
 			name = AuthModule;
 			packageProductDependencies = (
@@ -234,9 +232,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DABF4AC2D38C12800D2942D /* LaunchScreen.storyboard in Resources */,
-				3DABF4A92D38C12800D2942D /* Assets.xcassets in Resources */,
-				3DABF4A72D38C12600D2942D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,25 +287,6 @@
 			targetProxy = 3DABF4BD2D38C12800D2942D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		3DABF4A52D38C12600D2942D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3DABF4A62D38C12600D2942D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3DABF4AA2D38C12800D2942D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3DABF4AB2D38C12800D2942D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3DABF4C62D38C12800D2942D /* Debug */ = {
