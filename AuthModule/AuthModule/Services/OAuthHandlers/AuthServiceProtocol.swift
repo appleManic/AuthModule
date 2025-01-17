@@ -9,9 +9,11 @@ import Foundation
 import UIKit
 
 typealias AuthResult = Result<User, Error>
+typealias SignupResult = Result<UserProfile, Error>
 
+/// Description
 protocol AuthServiceProtocol {
     func login(email: String, password: String, completion: @escaping (AuthResult) -> Void )
-    func signup(email: String, password: String, completion: @escaping (AuthResult) -> Void )
+    func signup(email: String, password: String, username:String, completion: @escaping (SignupResult) -> Void )
     func loginWithOAuth(provider: OAuthProvider, presentingViewController: UIViewController?, completion: @escaping (AuthResult) -> Void )
 }
