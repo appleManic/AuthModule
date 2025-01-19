@@ -14,8 +14,8 @@ class AuthManager: AuthServiceProtocol {
     func login(email: String, password: String, completion: @escaping (AuthResult) -> Void) {
     }
     
-    func signup(email: String, password: String, completion: @escaping (SignupResult) -> Void) {
-        SignupHandler().signup(email: <#T##String#>, password: <#T##String#>, username: <#T##String#>, completion: <#T##(SignupResult) -> Void#>)
+    func signup(email: String, password: String, username:String, completion: @escaping (SignupResult) -> Void) {
+        SignupHandler().signup(email: email, password: password, username: username, completion: completion)
     }
     
     func loginWithOAuth(provider: OAuthProvider, presentingViewController: UIViewController?, completion: @escaping (AuthResult) -> Void) {

@@ -18,7 +18,9 @@ class SignupHandler {
         DispatchQueue.global().asyncAfter(deadline: .now() + 1.0) {
             // Validate email and password
             guard !email.isEmpty, !password.isEmpty, !username.isEmpty else {
-                completion(.failure(NSError(domain: "AuthError", code: 400, userInfo: [NSLocalizedDescriptionKey: "Email or password cannot be empty."])))
+                completion(.failure(NSError(domain: "AuthError",
+                                            code: 400,
+                                            userInfo: [NSLocalizedDescriptionKey: "Email or password cannot be empty."])))
                 return
             }
             let user = UserProfile(name: username, email: email, password: password, id: UUID().hashValue)
@@ -28,8 +30,6 @@ class SignupHandler {
     }
     
     private func isValidCredentials(email:String, password:String, username:String ) -> Bool {
-        
-        var isValidCredentials = false
         
         guard validator.isValidEmail(email) else {
             print(SignupError.invalidEmail.localizedDescription)
