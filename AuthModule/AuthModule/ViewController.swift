@@ -12,17 +12,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        signup()
+       // signup()
+        educationSignup()
         
     
     }
 
     func signup() {
-        let signup = SignupViewModel(handler: SignupHandler())
-        signup.email = "test@test.com"
-        signup.password = "test@1D1"
-        signup.username = "test"
-        
+        let signupData = DefaultUserProfile(name: "test",
+                                           email: "test@test.com",
+                                           password: "Nasmwyer@313")
+        let signup = SignupViewModel(handler: DefaultSignupHandler(), signupData: signupData)
+
+        signup.signup()
+    }
+    
+    func educationSignup() {
+        let signupData = EducationUserProfile(name: "testEducation",
+                                              email: "test@test.com",
+                                              password: "Nasmwyer@313",
+                                              education: "BSC")
+        let signup = SignupViewModel(handler: EducationSignupHandler(), signupData: signupData)
         signup.signup()
     }
 

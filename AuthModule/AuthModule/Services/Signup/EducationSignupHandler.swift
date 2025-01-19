@@ -1,32 +1,33 @@
 //
-//  SignupHandler.swift
+//  Untitled.swift
 //  AuthModule
 //
-//  Created by Pawan selokar on 16/01/25.
+//  Created by Pawan selokar on 19/01/25.
 //
+
 import Foundation
 
-class SignupHandler {
+class EducationSignupHandler: SignupHandling {
+    typealias SignUpData = EducationUserProfile
+    
     private let validator = Validator()
     
-    func signup(email: String, password: String, username:String, completion: @escaping (SignupResult) -> Void ) {
-        guard isValidCredentials(email: email, password: password, username:username) else {
+    func singup(data: SignUpData, completion: @escaping (SignupResult) -> Void) {
+        guard isValidCredentials(email: data.email, password: data.password, username:data.name) else {
             completion(.failure(AuthError.invalidCredentials))
             return
         }
-        
-        DispatchQueue.global().asyncAfter(deadline: .now() + 1.0) {
-            // Validate email and password
-            guard !email.isEmpty, !password.isEmpty, !username.isEmpty else {
-                completion(.failure(NSError(domain: "AuthError",
-                                            code: 400,
-                                            userInfo: [NSLocalizedDescriptionKey: "Email or password cannot be empty."])))
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2.0) {
+            guard !data.email.isEmpty, !data.password.isEmpty, !data.name.isEmpty else {
+                completion(.failure(SignupError.invalidCredentials))
                 return
             }
-            let user = UserProfile(name: username, email: email, password: password, id: UUID().hashValue)
-            completion(.success(user))
             
+            let user = EducationUserProfile(name: data.name, email: data.email,
+                                            password: data.password, education: data.education)
+            return completion(.success(user))
         }
+
     }
     
     private func isValidCredentials(email:String, password:String, username:String ) -> Bool {

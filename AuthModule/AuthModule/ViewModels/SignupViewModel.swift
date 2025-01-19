@@ -5,38 +5,51 @@
 //  Created by Pawan selokar on 17/01/25.
 //
 
-class SignupViewModel {
+
+/**
+ /// - SignupViewModel : A generic ViewModel class that handles user signup operations using a specified handler conforming to the SignupHandling protocol.
+ 
+ 
+ */
+class SignupViewModel<Handler:SignupHandling> {
     
-    var email: String = ""
-    var password: String = ""
-    var username: String = ""
     var isLoading: Bool = false
     var errorMessage: String?
     var isSignupSuccessful: Bool = false
     
-    var signupHandler:SignupHandler?
+    var signupHandler: Handler?
+    var data: Handler.SignUpData?
     
-    init(handler:SignupHandler) {
+    init(handler:Handler, signupData:Handler.SignUpData) {
         self.signupHandler = handler
+        data = signupData
     }
     
     func signup() {
         isLoading = true
-        signupHandler?.signup(email: email, password: password, username: username) { result in
-           // guard let self = self else { return }
+        guard let signupData = data else {
+                    isLoading = false
+                    errorMessage = "Signup data is not available"
+                    return
+        }
+            
+        signupHandler?.singup(data: signupData) { result in
             self.isLoading = false
             switch result {
             case .success(let user):
                 self.isSignupSuccessful = true
                 self.displaySuccessMessage(for: user)
             case .failure(let error):
-                print("Something went wrong \(error.localizedDescription)")
+                self.errorMessage = error.localizedDescription
+                print("Something went wrong: \(error.localizedDescription)")
             }
         }
     }
     
-    private func displaySuccessMessage(for user:UserProfile) {
+    private func displaySuccessMessage(for user:UserProfileProtocol) {
         print(self.isSignupSuccessful)
         print("The user \(user.name) has been signed up successfully")
     }
 }
+
+

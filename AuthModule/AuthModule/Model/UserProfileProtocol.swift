@@ -11,3 +11,9 @@ struct UserProfile {
     var password: String
     var id:Int
 }
+
+protocol UserProfileProtocol {
+    var name: String { get }
+    var email:String { get }
+    var password:String { get }
+}

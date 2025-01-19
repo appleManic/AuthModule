@@ -11,7 +11,7 @@ import Foundation
 // MARK: - Validator
 
 class Validator {
-    
+    typealias UserProfileData=UserProfileProtocol
     /// Validates an email address.
     /// - Parameter email: The email string to validate.
     /// - Returns: A Boolean indicating whether the email is valid.

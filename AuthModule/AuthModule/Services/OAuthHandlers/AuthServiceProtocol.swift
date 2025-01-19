@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 typealias AuthResult = Result<User, Error>
-typealias SignupResult = Result<UserProfile, Error>
+typealias SignupResult = Result<UserProfileProtocol, Error>
 
 /// Description
 protocol AuthServiceProtocol {

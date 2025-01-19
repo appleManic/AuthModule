@@ -11,6 +11,7 @@ enum SignupError: Error {
     case emailAlreadyExists
     case unknownError
     case invalideUsername
+    case invalidCredentials
 
     var localizedDescription: String {
         switch self {
@@ -24,6 +25,8 @@ enum SignupError: Error {
             return "An unknown error occurred."
         case .invalideUsername:
             return "The username is too short."
+        case .invalidCredentials:
+            return "Invalid or Empty Credentials"
         }
     }
 }
